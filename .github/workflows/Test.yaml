@@ -1,0 +1,21 @@
+name: Benchmarking
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  benchmark:
+    name: Run pytest-benchmark benchmark example
+    runs-on: my-label
+    steps:
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: Azure/get-keyvault-secrets@v1
+        with:
+          keyvault: "KEYVAULT" # name of key vault in Azure portal
+          secrets: 'Username, Password'   # comma separated list of secret keys to fetch from key vault
+        id: AzureSecrets
