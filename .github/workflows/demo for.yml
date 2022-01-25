@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: master
+  
+  pull_request:
+    branches: master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Build & Deploy Package Maven
+      run: mvn -B package --file ${{github.workspace}}/DeepSpace/pom.xml
+    
+    - run: |
+       cd ${{github.workspace}}/DeepSpace
+       ls
+        
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+       name: Deepspace-artifact
+       path: ${{github.workspace}}/DeepSpace/target/*.war
+       
+  deploy:
+  
+   runs-on: new-runner
+   needs: build  
+   steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.1.0
+        with:
+          name: Deepspace-artifact
+          path: C:\Users\jayeshs\GIT\deepspace-artifact
+      - name: deploy to tomcat
+        run: |
+         xcopy C:\Users\jayeshs\GIT\deepspace-artifact\deepspace.war "C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\"
+       
+     
