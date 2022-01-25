@@ -6,11 +6,6 @@ on:
   push: 
    branches: main 
 
-env:
-  AZURE_WEBAPP_NAME: deepspacetest
-  AZURE_WEBAPP_PACKAGE_PATH: ${{ github.workspace }}
-  AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-
 jobs:
  build:
     name: build
