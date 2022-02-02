@@ -42,7 +42,7 @@ jobs:
   deploy:
 
    
-    runs-on: self-runner
+    runs-on: my-label
     needs: build  
     
     steps:
