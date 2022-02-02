@@ -1,19 +1,27 @@
-# This is a basic workflow to help you get started with Actions
+# This is a basic workflow to help you get started with Actionss
 
 name: CI
 
 # Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: master
-  
+    branches: [ master ]
   pull_request:
-    branches: master
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+
+
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    
+    
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 11
@@ -23,6 +31,7 @@ jobs:
         distribution: 'adopt'
     - name: Build & Deploy Package Maven
       run: mvn -B package --file ${{github.workspace}}/DeepSpace/pom.xml
+      
     
     - run: |
        cd ${{github.workspace}}/DeepSpace
@@ -33,16 +42,22 @@ jobs:
       with:
        name: Deepspace-artifact
        path: ${{github.workspace}}/DeepSpace/target/*.war
-       
   deploy:
-  
-   runs-on: my-label
-   needs: build  
-   steps:
+
+   
+    runs-on: self-runner
+    needs: build  
+    
+    steps:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.1.0
         with:
           name: Deepspace-artifact
+
           path: C:\Users\subharanjano\Music\New folder
       
+     
+    
+     
+       
      
