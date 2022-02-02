@@ -34,7 +34,7 @@ jobs:
       
     
     - run: |
-       cd ${{github.workspace}}/DeepSpace
+       cd ${{github.workspace}}
        ls
         
     - name: Upload a Build Artifact
