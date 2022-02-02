@@ -54,7 +54,7 @@ jobs:
           path: C:\Users\subharanjano\Music\New folder
       - name: deploy to tomcat
         run: | 
-         xcopy C:\Users\subharanjano\Music\New folder "C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps"
+         xcopy C:\Users\subharanjano\Music\New folder\deepspace.war "C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps"
       
      
     
