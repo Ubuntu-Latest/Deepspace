@@ -30,7 +30,7 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Build & Deploy Package Maven
-      run: mvn -B package --file ${{github.workspace}}/DeepSpace/pom.xml
+      run: mvn -B package --file ${{github.workspace}}/pom.xml
       
     
     - run: |
@@ -41,7 +41,7 @@ jobs:
       uses: actions/upload-artifact@v2.3.1
       with:
        name: Deepspace-artifact
-       path: ${{github.workspace}}/DeepSpace/target/*.war
+       path: ${{github.workspace}}target/*.war
   deploy:
 
    
