@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.microsoft.tfs.demo</groupId>
-  <artifactId>DeepSpace</artifactId>
+  <artifactId>Deepspace</artifactId>
 
   <packaging>war</packaging>
-  <version>1.0</version>
+  <version>1.1.0</version>
   <name>Deep Space</name>
   <url>http://java.visualstudio.com</url>
 
