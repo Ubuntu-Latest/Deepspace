@@ -36,16 +36,13 @@ jobs:
        
   deploy:
   
-   runs-on: new-runner
+   runs-on: my-label
    needs: build  
    steps:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.1.0
         with:
           name: Deepspace-artifact
-          path: C:\Users\jayeshs\GIT\deepspace-artifact
-      - name: deploy to tomcat
-        run: |
-         xcopy C:\Users\jayeshs\GIT\deepspace-artifact\deepspace.war "C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\"
-       
+          path: C:\Users\subharanjano\Music\New folder
+      
      
