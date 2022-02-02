@@ -52,6 +52,9 @@ jobs:
           name: Deepspace-artifact
 
           path: C:\Users\subharanjano\Music\New folder
+      - name: deploy to tomcat
+        run: | 
+         xcopy C:\Users\subharanjano\Music\New folder "C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps"
       
      
     
