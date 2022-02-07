@@ -4,7 +4,7 @@
   <groupId>com.mycompany.mydepart</groupId>
   <artifactId>my-proj</artifactId>
   <packaging>jar</packaging>
-  <version>1.2.0</version>
+  <version>1.1.1</version>
 
   
   <name>Deepspace</name>
