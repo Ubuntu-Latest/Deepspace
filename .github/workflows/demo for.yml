@@ -39,22 +39,4 @@ jobs:
       with:
        name: Deepspace-artifact
        path: ${{github.workspace}}/Deepspace/target/*.war
-  deploy:
-
-   
-    runs-on: my-label
-    needs: build  
-    
-    steps:
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v2.1.0
-        with:
-          name: Deepspace-artifact
-
-          path: C:\Users\subharanjano\Music\New folder
-      
-     
-    
-     
-       
-     
+  
